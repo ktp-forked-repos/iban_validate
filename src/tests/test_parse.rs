@@ -2,7 +2,7 @@
 
 use expectest::prelude::*;
 
-use Iban;
+use crate::Iban;
 
 #[test]
 /// This test checks whether IBANs of invalid lengths are detected to be invalid.

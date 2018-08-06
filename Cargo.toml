@@ -1,4 +1,7 @@
+cargo-features = ["edition"]
+
 [package]
+edition = '2018'
 name = "iban_validate"
 # Note: When updating, also update in lib.rs and README.md
 version = "1.0.3"

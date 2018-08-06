@@ -2,8 +2,8 @@
 
 use expectest::prelude::*;
 
-use Iban;
-use BbanResult;
+use crate::Iban;
+use crate::BbanResult;
 
 #[test]
 /// This test checks whether ibans with a valid country format are recognized as such.

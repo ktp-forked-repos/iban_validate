@@ -39,7 +39,8 @@
 #![deny(missing_docs)]
 #![doc(html_root_url = "https://docs.rs/iban_validate/1.0.3")]
 
-extern crate regex;
+#![feature(rust_2018_preview)]
+
 #[macro_use]
 extern crate lazy_static;
 #[cfg(test)]
@@ -52,10 +53,10 @@ use std::ops;
 use regex::Regex;
 use std::error::Error;
 
-use countries::RE_COUNTRY_CODE;
-use countries::RE_ADDRESS_REMAINDER;
+use crate::countries::RE_COUNTRY_CODE;
+use crate::countries::RE_ADDRESS_REMAINDER;
 
-pub use countries::BbanResult;
+pub use crate::countries::BbanResult;
 
 #[cfg(test)]
 mod tests;
@@ -112,7 +113,7 @@ static PARSE_IBAN_ERROR_DESCRIPTION: &'static str = "account number does not fol
                                                      format";
 
 impl fmt::Display for ParseIbanError {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         PARSE_IBAN_ERROR_DESCRIPTION.fmt(f)
     }
 }
@@ -122,7 +123,7 @@ impl Error for ParseIbanError {
         PARSE_IBAN_ERROR_DESCRIPTION
     }
 
-    fn cause(&self) -> Option<&Error> {
+    fn cause(&self) -> Option<&dyn Error> {
         None
     }
 }
@@ -450,7 +451,7 @@ impl fmt::Display for Iban {
     /// #     try_main().unwrap();
     /// # }
     /// ```
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         self.format_print().fmt(f)
     }
 }

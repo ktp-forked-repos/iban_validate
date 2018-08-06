@@ -2,7 +2,7 @@
 
 use expectest::prelude::*;
 
-use Iban;
+use crate::Iban;
 
 #[test]
 /// This test checks whether the different splits of an address are correct.

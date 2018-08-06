@@ -2,7 +2,7 @@
 
 use expectest::prelude::*;
 
-use Iban;
+use crate::Iban;
 
 /// This test checks the electronic formatting method.
 #[test]

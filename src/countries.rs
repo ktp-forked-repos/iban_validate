@@ -1,8 +1,6 @@
 //! This module contains the code for the validation of the countries in the Swift IBAN registry. It
 //! checks if the country code is recognized and then tries to match the regular expression.
 
-extern crate regex;
-
 use regex::{RegexSet, RegexSetBuilder};
 
 static COUNTRY_FORMATS: [(&'static str, &'static str); 75] =
